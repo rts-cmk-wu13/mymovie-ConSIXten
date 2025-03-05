@@ -1,0 +1,22 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding: 1rem 0;
+    
+}
+
+.footer__img{
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.footer__img--film{
+    height: 3rem;
+    width: 3rem;
+
+}
