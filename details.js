@@ -4,9 +4,9 @@ let movieId = params.get("id");
 
 let mainElm = document.querySelector('main');
 let sectionElm = document.createElement("section");
-sectionElm.className = "details"
+sectionElm.className = "details";
 
-const artworkUrl = "https://image.tmdb.org/t/p/w500"
+const artworkUrl = "https://image.tmdb.org/t/p/w500";
 
 const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
 const options = {
@@ -19,29 +19,67 @@ const options = {
 
 fetch(url, options)
   .then(res => res.json())
-.then(movie => {
+  .then(movie => {
 
-let heroElm = document.createElement('div');
-let headerElm = document.querySelector('header');
-heroElm.className = 'hero';
+    let heroElm = document.createElement('div');
+    let headerElm = document.querySelector('header');
+    heroElm.className = 'hero';
 
-headerElm.appendChild(heroElm);
+    headerElm.appendChild(heroElm);
 
-heroElm.innerHTML = `
-<figure>
-    <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
-</figure>
-`;
+    heroElm.innerHTML = `
+      <figure>
+        <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
+      </figure>
+    `;
 
     sectionElm.innerHTML = `
-    <div class="details__headline">
-        <h1 class="">${movie.title}</h1>
+      <div class="details__headline">
+        <h1 class="details__blockMargin">${movie.title}</h1>
         <i class="fa-regular fa-bookmark details__icon"></i>
-    </div>
-    <p class="text__gray"><i class="icon_star fa-solid fa-star"></i> ${movie.vote_average}/10 IMDb</p>
+      </div>
+      <p class="text__gray"><i class="icon_star fa-solid fa-star"></i> ${movie.vote_average}/10 IMDb</p>
+      <div class="details__blockMargin">
+      ${movie.genres.map(function (genre) {
+                console.log(genre);
+                return `<span class="movielist__genre" >${genre.name}</span>`
+            }).join("")
+                }
+      </div>
+ 
+      <h2 class="details__blockMargin font_color">Description</h2>
+      <p>${movie.overview}</p>
+      <div>
+        <h3 class="details__blockMargin font_color">Cast</h3>
+      </div>
+      <div class="details__cast--grid"></div> <!-- Added the cast grid container here -->
+
     `;
-console.log(movie)
 
-document.querySelector("main").append(sectionElm);
-})
+    // Append the sectionElm to main
+    document.querySelector("main").append(sectionElm);
 
+    // Fetch the cast details
+    return fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, options);
+  })
+  .then(res => res.json())
+  .then(data => {
+    // Map over the cast and display them in the grid
+    document.querySelector(".details__cast--grid").innerHTML = data.cast
+      .slice(0, 15) 
+      .map(actor => `
+        <article class="details__cast">
+        <div>
+          <a href="cast.html">
+            <figure class="details__cast--img">
+              <img class="popular__movie__img" src="https://image.tmdb.org/t/p/w185${actor.profile_path}" alt="${actor.name}">
+            </figure>
+          </a>
+          <div class="details__cast__text">
+            <h3 class="font_sans">${actor.name}</h3>
+            <p class="text__gray">${actor.character}</p>
+          </div>
+        </article>
+      `)
+      .join("");
+  })

@@ -23,3 +23,26 @@
     width: 2rem;
     height: 2rem;
 }
+
+/*----------------- details-cast ------------------*/
+.details__cast{
+    width: 8rem;
+    height: 15rem;
+    margin: 0.5rem;
+}
+
+.details__cast--grid{
+    display: flex;
+    overflow-x: auto;
+}
+
+
+.details__cast--img{
+height: 9rem;
+width: 8rem;
+margin-bottom: 0.25rem;
+}
+
+.details__blockMargin{
+    margin-block: 1rem;
+}
