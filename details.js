@@ -36,10 +36,9 @@ fetch(url, options)
           <span class="slider round"></span>
         </label>
       </div>
-      
-      <section>
+      <figure>
         <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
-      </section>
+      </figure>
     </div>
 
     `;
@@ -59,7 +58,7 @@ fetch(url, options)
       </div>
       <div class="navigation__header">
         <div>
-          <p class="text__gray">Length</p>
+          <p class="text_gray">Length</p>
           <p>${movie.runtime}min</p>
         </div>
         <div>
@@ -72,10 +71,10 @@ fetch(url, options)
         </div>
       </div>
  
-      <h2 class="details__blockMargin font_color">Description</h2>
+      <h2 class="details__blockMargin">Description</h2>
       <p>${movie.overview}</p>
       <div class="details__cast-overview">
-          <h3 class="details__blockMargin font_color">Cast</h3>
+          <h3 class="details__blockMargin">Cast</h3>
         <div>
           <button class="movielist__btn">see more</button>
         </div>
