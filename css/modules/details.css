@@ -1,0 +1,60 @@
+.hero{
+    grid-column: fullw;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.details__icon{
+    width: 100%;
+    height: 100%;
+}
+
+/*---------- header ends here -----------*/
+.details__header{
+    margin-inline: 1rem;
+    margin-block-end: 1rem;
+}
+
+.details__headline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 1rem; */
+
+}
+
+.details__icon{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1rem;
+}
+
+/*----------------- details-cast ------------------*/
+.details__cast{
+    width: 8rem;
+    height: 16rem;
+    margin: 0.5rem;
+}
+
+.details__cast-overview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details__cast--grid{
+    display: flex;
+    overflow-x: auto;
+}
+
+
+.details__cast--img{
+height: 10rem;
+width: 8rem;
+margin-bottom: 0.25rem;
+}
+
+.details__blockMargin{
+    margin-block: 1rem;
+}

@@ -1,0 +1,37 @@
+.footer{
+    /* padding: 1rem 0;
+    background-color: white;
+    display: block;
+    height: 5rem;
+    width: 100%;
+    grid-column: fullw; */
+}
+
+.footer-test{
+    padding: 1rem 0;
+    background-color: light-dark(var(--light-color), var(--dark-color));
+    display: block;
+    height: 5rem;
+    width: 100%;
+    grid-column: fullw;
+    position: sticky;
+    bottom: 0;
+}
+
+.footer__nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer__img{
+    height: 2rem;
+    width: 2rem;
+    margin-top: 0.1rem;
+
+}
+
+.footer__img--film{
+    height: 3rem;
+    width: 3rem;
+
+}

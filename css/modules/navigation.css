@@ -1,0 +1,8 @@
+.navigation__header{
+    display: flex;
+    /* gap: 5rem; */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
