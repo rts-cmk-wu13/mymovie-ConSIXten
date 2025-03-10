@@ -1,5 +1,5 @@
 .movielist{
-margin-top: 2rem;
+margin-top: 1rem;
 }
 
 .movielist__headline{
@@ -12,7 +12,7 @@ margin-top: 2rem;
 }
 
 .movielist__card{
-    width: 10rem;
+    width: 100%;
     height: 20rem;
     margin-right: 1rem;
     
@@ -42,8 +42,10 @@ margin-top: 2rem;
     background-color: #DBE3FF;
     border-radius: 1rem;
     padding: 0.25rem;
+    font-size: small;
     border: none;
     color: #88A4E8;
+    margin-inline-end: 0.25rem;
 }
 
 /*------------ POPULAR MOVIE SECTION ----------*/
@@ -57,14 +59,14 @@ margin-top: 2rem;
 
 .movielist__popular--card{
     display: flex;
-    height: 10rem;
+    height: 8rem;
     width: 100%;
     margin-bottom: 1rem;
 }
 
 .movielist__popular--img{
-    height: 10rem;
-    width: 7rem;
+    height: 100%;
+    width: 5rem;
 }
 
 .movielist__popular--info{

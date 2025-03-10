@@ -28,9 +28,20 @@ fetch(url, options)
     headerElm.appendChild(heroElm);
 
     heroElm.innerHTML = `
-      <figure>
+    <div class="no-columns ">
+      <div class="navigation__header">
+        <a href="index.html"><i class="details__header fa-solid fa-arrow-left"></i></a>
+        <label for="switch" class="switch details__header">
+          <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      
+      <section>
         <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
-      </figure>
+      </section>
+    </div>
+
     `;
 
     sectionElm.innerHTML = `
@@ -44,16 +55,32 @@ fetch(url, options)
                 console.log(genre);
                 return `<span class="movielist__genre" >${genre.name}</span>`
             }).join("")
-                }
+                }     
+      </div>
+      <div class="navigation__header">
+        <div>
+          <p class="text__gray">Length</p>
+          <p>${movie.runtime}min</p>
+        </div>
+        <div>
+          <p class="text_gray">Language</p>
+          <p>${movie.original_language}</p>
+        </div>
+        <div>
+          <p class="text_gray">Rating</p>
+          <p>${movie.rating}</p>
+        </div>
       </div>
  
       <h2 class="details__blockMargin font_color">Description</h2>
       <p>${movie.overview}</p>
-      <div>
-        <h3 class="details__blockMargin font_color">Cast</h3>
+      <div class="details__cast-overview">
+          <h3 class="details__blockMargin font_color">Cast</h3>
+        <div>
+          <button class="movielist__btn">see more</button>
+        </div>
       </div>
-      <div class="details__cast--grid"></div> <!-- Added the cast grid container here -->
-
+      <div class="details__cast--grid"> </div> <!-- Added the cast grid container here -->
     `;
 
     // Append the sectionElm to main
@@ -64,9 +91,9 @@ fetch(url, options)
   })
   .then(res => res.json())
   .then(data => {
+
     // Map over the cast and display them in the grid
     document.querySelector(".details__cast--grid").innerHTML = data.cast
-      .slice(0, 15) 
       .map(actor => `
         <article class="details__cast">
         <div>

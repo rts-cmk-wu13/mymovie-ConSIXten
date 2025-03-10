@@ -19,8 +19,12 @@ headerElm.appendChild(navElm);
 
 navElm.innerHTML = `
 <div class="navigation__header no-columns">
-    <h1 class="font_color">MyMovies</h1>
-    <input class="navigation__btn" type="checkbox" switch name="switch" id="switch">
+    <i class="fa-sharp fa-regular fa-bars"></i>
+    <h1 class="">MyMovies</h1>
+    <label for="switch" class="switch">
+        <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
+        <span class="slider round"></span>
+    </label>
 </div>
 `;
 
@@ -34,7 +38,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=bab83b5f6ac24c07eb
 .then(data => {
     sectionElm.innerHTML = `
         <div class="movielist__popular--header movielist movielist__headline">
-        <h2 class="font_color">Now showing</h2>
+        <h2 class="">Now showing</h2>
         <button class="movielist__btn">see more</button>
     </div>
         <div class="movielist__content">
@@ -65,12 +69,12 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=bab83b5f6ac24c07ebb00c
 .then(data => {
     popularElm.innerHTML = `
     <div class="movielist__popular--header">
-        <h4 class="font_color movielist__popular--headline">Popular</h4>
+        <h4 class=" movielist__popular--headline">Popular</h4>
         <button class="movielist__btn">see more</button>
     </div>
         ${data.results.map(movie => `
         <div class="movielist__popular--card">
-        <a href="details.html">
+        <a href="details.html?id=${movie.id}">
         <figure class="movielist__popular--img">
         <img class="popular__movie__img" src="${artworkUrl}/${movie.poster_path}" alt="${movie.original_title}">
         </figure>
@@ -94,18 +98,20 @@ document.querySelector("main").append(popularElm);
 let footerNavElm = document.createElement('nav');
 let footerElm = document.querySelector('footer');
 footerNavElm.className = 'footer';
-
+footerElm.className = 'footer-test'
 
 footerNavElm.innerHTML = `
-<figure class="footer__img--film">
-    <a href=""><img  src="films.png" alt=""></a>
-</figure>
-<figure class="footer__img">
-    <a href=""><img  src="ticket.png" alt=""></a>
-</figure>
-<figure class="footer__img">
-    <a href=""><img  src="Saved.png" alt=""></a>
-</figure>
+<div class="footer__nav">
+    <figure class="footer__img--film">
+        <a href=""><img  src="films.png" alt=""></a>
+    </figure>
+    <figure class="footer__img">
+        <a href="tickets.html"><img  src="ticket.png" alt=""></a>
+    </figure>
+    <figure class="footer__img">
+        <a href="saved.html"><img  src="Saved.png" alt=""></a>
+    </figure>
+</div>
 
 `;
 footerElm.appendChild(footerNavElm);

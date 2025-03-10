@@ -11,24 +11,36 @@
 }
 
 /*---------- header ends here -----------*/
+.details__header{
+    margin-inline: 1rem;
+    margin-block-end: 1rem;
+}
 
 .details__headline{
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
+    align-items: center;
+    /* margin-top: 1rem; */
 
 }
 
 .details__icon{
     width: 2rem;
     height: 2rem;
+    margin-top: 1rem;
 }
 
 /*----------------- details-cast ------------------*/
 .details__cast{
     width: 8rem;
-    height: 15rem;
+    height: 16rem;
     margin: 0.5rem;
+}
+
+.details__cast-overview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .details__cast--grid{
@@ -38,7 +50,7 @@
 
 
 .details__cast--img{
-height: 9rem;
+height: 10rem;
 width: 8rem;
 margin-bottom: 0.25rem;
 }
