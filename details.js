@@ -2,7 +2,8 @@ let search = window.location.search;
 let params = new URLSearchParams(search);
 let movieId = params.get("id");
 
-const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US?append_to_response=release_dates,credits`;
+
+const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&append_to_response=release_dates,credits`;
 const options = {
   method: 'GET',
   headers: {
@@ -18,12 +19,22 @@ detailsHeader.className = "details__header";
 headerElm.classname = 'header'
 
 detailsHeader.innerHTML = `
-<div class="navigation__header">
-  <a href="index.html"><i class="details__header fa-solid fa-arrow-left"></i></a>
-  <label for="switch" class="switch details__header">
-    <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
-    <span class="slider round"></span>
-  </label>
+  <div class="navigation__header">
+  <ul class="navigation__list">
+    <li>
+      <a href="index.html">
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+      </a>
+    </li>
+    <li class="navigation__item">
+    <label for="switch" class="switch">
+     <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
+     <span class="slider round"></span>
+     </label>
+    </li>
+</ul>
+  
+  </div>
 `;
 
 let mainElm = document.querySelector('main');
@@ -34,6 +45,16 @@ fetch(url, options)
 
     console.log(movie)
     
+    function findRating(release_dates_array){
+      let localRelease = release_dates_array.results.find(release => release.iso_3166_1 == "US")
+      let release = localRelease.release_dates.find(localRelease => localRelease.certification != "")
+      return release.certification
+    }
+
+    const runtime = movie.runtime; // Runtime (minutter)
+    const hours = Math.floor(runtime / 60);
+    const minutes = runtime % 60;
+
 let sectionElm = document.createElement("section");
 sectionElm.className = "details";
 
@@ -46,6 +67,10 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
 
     heroElm.innerHTML = `
         <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
+
+        <!-- <div class="hero__startblock">
+          <a href=""><img src="Play.png" alt=""></a>
+        </div> -->
     `;
 
     sectionElm.innerHTML = `
@@ -56,7 +81,6 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
       <p class="text__gray"><i class="icon_star fa-solid fa-star"></i> ${movie.vote_average}/10 IMDb</p>
       <div class="details__blockMargin">
       ${movie.genres.map(function (genre) {
-                console.log(genre);
                 return `<span class="movielist__genre" >${genre.name}</span>`
             }).join("")
                 }     
@@ -64,15 +88,15 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
       <div class="navigation__header">
         <div>
           <p class="text__gray">Length</p>
-          <p>${movie.runtime}min</p>
+          <p class="justified">${hours}h ${minutes}min</p>
         </div>
         <div>
           <p class="text__gray">Language</p>
-          <p>${movie.original_language}</p>
+          <p class="justified">${movie.original_language}</p>
         </div>
         <div>
           <p class="text__gray">Rating</p>
-          <p>${movie.rating}</p>
+          <p class="justified">${findRating(movie.release_dates)}</p>
         </div>
       </div>
  

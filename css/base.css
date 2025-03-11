@@ -53,6 +53,11 @@ a{
     margin-block: 0.7rem;
 }
 
+.justified{
+  display: flex;
+  justify-content: center;
+}
+
 /*---------- switch element -----.-*/
 
  /* The switch - the box around the slider */
