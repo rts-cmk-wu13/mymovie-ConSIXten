@@ -6,6 +6,17 @@
     position: relative;
 }
 
+/* .hero__startblock{
+    width: 5rem;
+    position: fixed;
+    inset: 5rem auto auto 10rem;
+} */
+
+.details__img{
+    border-bottom-left-radius: 0.5rem ;
+    border-bottom-right-radius: 0.5rem ;
+}
+
 
 .details__icon{
     width: 100%;
@@ -19,7 +30,6 @@
     z-index: 1;
     inset-inline-start: 50%;
     translate: -50%;
-    padding-block: 1rem;
 }
 
 

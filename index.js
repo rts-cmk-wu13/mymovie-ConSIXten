@@ -19,7 +19,7 @@ headerElm.appendChild(navElm);
 
 navElm.innerHTML = `
 <div class="navigation__header no-columns">
-    <i class="fa-sharp fa-regular fa-bars"></i>
+<i class="fa-solid fa-bars"></i>
     <h1 class="">MyMovies</h1>
     <label for="switch" class="switch">
         <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
