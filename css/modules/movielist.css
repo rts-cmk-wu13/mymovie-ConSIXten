@@ -36,6 +36,12 @@ margin-top: 1rem;
     padding: 0.25rem;
     border: 2px solid #9C9C9C;
     color: #9C9C9C;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.movielist__btn:hover{
+    background-color: #9C9C9C;
+    color: var(--light-color);
 }
 
 .movielist__genre{

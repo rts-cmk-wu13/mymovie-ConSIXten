@@ -2,13 +2,7 @@ let search = window.location.search;
 let params = new URLSearchParams(search);
 let movieId = params.get("id");
 
-let mainElm = document.querySelector('main');
-let sectionElm = document.createElement("section");
-sectionElm.className = "details";
-
-const artworkUrl = "https://image.tmdb.org/t/p/w500";
-
-const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US?append_to_response=release_dates,credits`;
 const options = {
   method: 'GET',
   headers: {
@@ -17,30 +11,41 @@ const options = {
   }
 };
 
+let headerElm = document.querySelector('header');
+let detailsHeader = document.createElement('nav')
+document.querySelector("header").append(detailsHeader)
+detailsHeader.className = "details__header";
+headerElm.classname = 'header'
+
+detailsHeader.innerHTML = `
+<div class="navigation__header">
+  <a href="index.html"><i class="details__header fa-solid fa-arrow-left"></i></a>
+  <label for="switch" class="switch details__header">
+    <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
+    <span class="slider round"></span>
+  </label>
+`;
+
+let mainElm = document.querySelector('main');
+
 fetch(url, options)
   .then(res => res.json())
   .then(movie => {
 
-    let heroElm = document.createElement('div');
-    let headerElm = document.querySelector('header');
+    console.log(movie)
+    
+let sectionElm = document.createElement("section");
+sectionElm.className = "details";
+
+const artworkUrl = "https://image.tmdb.org/t/p/w500";
+
+    let heroElm = document.createElement('section');
     heroElm.className = 'hero';
 
-    headerElm.appendChild(heroElm);
+    document.querySelector("main").append(heroElm);
 
     heroElm.innerHTML = `
-    <div class="no-columns ">
-      <div class="navigation__header">
-        <a href="index.html"><i class="details__header fa-solid fa-arrow-left"></i></a>
-        <label for="switch" class="switch details__header">
-          <input class="navigation__btn" type="checkbox"  name="switch" id="switch">
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <figure>
         <img class="details__img" src="${artworkUrl}${movie.backdrop_path}" alt="">
-      </figure>
-    </div>
-
     `;
 
     sectionElm.innerHTML = `
@@ -58,15 +63,15 @@ fetch(url, options)
       </div>
       <div class="navigation__header">
         <div>
-          <p class="text_gray">Length</p>
+          <p class="text__gray">Length</p>
           <p>${movie.runtime}min</p>
         </div>
         <div>
-          <p class="text_gray">Language</p>
+          <p class="text__gray">Language</p>
           <p>${movie.original_language}</p>
         </div>
         <div>
-          <p class="text_gray">Rating</p>
+          <p class="text__gray">Rating</p>
           <p>${movie.rating}</p>
         </div>
       </div>
