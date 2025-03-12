@@ -44,7 +44,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=bab83b5f6ac24c07eb
         <div class="movielist__content">
         ${data.results.map(movie => `<article class="movielist__card">
         <a href="details.html?id=${movie.id}">
-            <figure class="movielist__img">
+            <figure class="movielist__img--container">
             <img class="popular__movie__img" src="${artworkUrl}/${movie.poster_path}" alt="${movie.original_title}">
             </figure>
         </a>

@@ -188,7 +188,7 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
               <img class="popular__movie__img" src="https://image.tmdb.org/t/p/w185${actor.profile_path}" alt="${actor.name}">
             </figure>
           </a>
-          <div class="details__cast__text">
+          <div class="details__cast__text details__blockMargin">
             <h3 class="font_sans">${actor.name}</h3>
             <p class="text__gray">${actor.character}</p>
           </div>
