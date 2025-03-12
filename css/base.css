@@ -43,6 +43,7 @@ a{
     font-family: sans-serif;
     font-weight: 500;
     font-size: medium;
+    line-height: 1.6;
 }
 
 .font_color{
@@ -56,6 +57,10 @@ a{
 .justified{
   display: flex;
   justify-content: center;
+}
+
+.headliner{
+  font-size: x-large;
 }
 
 /*---------- switch element -----.-*/
@@ -83,7 +88,7 @@ a{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #9C9C9C;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -91,7 +96,7 @@ a{
   .slider:before {
     position: absolute;
     content: "";
-    height: 21px;
+    height: 22.5px;
     width: 22px;
     left: 1.5px;
     bottom: 1.5px;

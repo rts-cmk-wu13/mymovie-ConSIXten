@@ -55,7 +55,6 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=bab83b5f6ac24c07eb
             </article>`).join("")}
     </div>
     `;
-console.log(data)
 
 document.querySelector("main").append(sectionElm);
 })
@@ -84,13 +83,11 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=bab83b5f6ac24c07ebb00c
         <p class="margin-block--small text__gray"><i class="fa-solid fa-star icon_star"></i> ${movie.vote_average}/10 IMDb</p>
         ${movie.genre_ids.map(genre_id => {
         let currentGenre = genres.find(genre => genre.id == genre_id)
-        console.log(currentGenre)
-        return `<span class="movielist__genre">${currentGenre.name}</span>`
+        return `<span class="font_sans movielist__genre">${currentGenre.name}</span>`
         }).join(" ")}
         </div>
         </div>`).join("")}
     `;
-console.log(data)
 
 document.querySelector("main").append(popularElm);
 })
