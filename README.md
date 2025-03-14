@@ -1,6 +1,8 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/UgKBWXTI)
 **Dynamisk web**
 
+https://consixten-movieapp.netlify.app
+
 # Web applikation - MyMovie
 
 Du skal i praktisk web perioden lave applikationene my movie. Data skal hentes fra "The Movie Database".
