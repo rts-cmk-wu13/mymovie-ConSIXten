@@ -1,45 +1,3 @@
-.hero{
-    height: 100%;
-    display: block;
-    grid-column: fullw;
-    grid-template-columns: subgrid;
-    position: relative;
-}
-
-.hero__play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    background: rgba(248, 248, 248, 0.369);
-    color: rgba(0, 0, 0, 0.754);
-    border: none;
-    font-size: 1.3rem;
-    padding: 1.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-
-/* .hero__startblock{
-    width: 5rem;
-    position: fixed;
-    inset: 5rem auto auto 10rem;
-} */
-
-.details__img{
-    border-bottom-left-radius: 0.5rem ;
-    border-bottom-right-radius: 0.5rem ;
-}
-
-
-.details__icon{
-    width: 100%;
-    height: 100%;
-}
-
-/*---------- hero ends here -----------*/
 /*----- header starts here -----*/
 .details__header{
     position: absolute;
@@ -62,6 +20,8 @@
     width: 2rem;
     height: auto;
 }
+
+/*----- header ends here -----*/
 /*----------------- details-cast ------------------*/
 .details__cast{
     width: 8rem;
@@ -89,38 +49,4 @@ margin-bottom: 0.25rem;
 
 .details__blockMargin{
     margin-block: 1rem;
-}
-
-
-/*---- modal ---*/
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: light-dark(var(--light-color), var(--dark-color));
-    padding: 1rem;
-    border-radius: 0.5rem;
-    position: relative;
-    text-align: center;
-    width: 90%;
-    max-width: 37.5rem;
-}
-
-.close {
-    position: absolute;
-    top: 0rem;
-    right: 0.3rem;
-    font-size: 1.25rem;
-    cursor: pointer;
 }

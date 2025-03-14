@@ -1,0 +1,22 @@
+.hero{
+    height: 100%;
+    display: block;
+    grid-column: fullw;
+    grid-template-columns: subgrid;
+    position: relative;
+}
+
+.hero__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background: rgba(248, 248, 248, 0.369);
+    color: rgba(0, 0, 0, 0.754);
+    border: none;
+    font-size: 1.3rem;
+    padding: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}

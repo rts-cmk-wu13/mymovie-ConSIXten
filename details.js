@@ -52,14 +52,6 @@ fetch(url, options)
       return release.certification
     }
 
-    // function findVideo(videos_array){
-    //   let videos = videos_array.results.find(results => results.iso_639_1 == "US")
-    //   let video = videos.release_dates.find(videos => videos.id != "")
-    //   return video.id
-      
-    // }
-    // console.log(results.video);
-
     const runtime = movie.runtime; // Runtime (minutter)
     const hours = Math.floor(runtime / 60);
     const minutes = runtime % 60;
@@ -79,9 +71,6 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
         <div class="hero__play-button" id="trailerBtn">
         <i class="fa-solid fa-play"></i>
       </div>
-        <!-- <div class="hero__startblock">
-          <a href=""><img src="Play.png" alt=""></a>
-        </div> -->
     `;
 
     sectionElm.innerHTML = `
@@ -124,8 +113,42 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
 
     document.querySelector("main").append(sectionElm);
 
+    // Update bookmark functionality to change icon style
+    const bookmarkIcon = document.querySelector('.details__icon');
+    const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || [];
 
-  // MODAL START - Add modal for movie trailer
+    // Check if movie is already saved
+    if (savedMovies.some(m => m.id === movieId)) {
+      bookmarkIcon.classList.add('saved');
+      bookmarkIcon.classList.remove('fa-regular');
+      bookmarkIcon.classList.add('fa-solid');
+    }
+
+    bookmarkIcon.addEventListener('click', () => {
+      const exists = savedMovies.findIndex(m => m.id === movieId);
+      
+      if (exists > -1) {
+        // Remove movie
+        savedMovies.splice(exists, 1);
+        bookmarkIcon.classList.remove('saved');
+        bookmarkIcon.classList.remove('fa-solid');
+        bookmarkIcon.classList.add('fa-regular');
+      } else {
+        // Add movie
+        savedMovies.push({
+          id: movieId,
+          title: movie.title,
+          backdrop_path: movie.backdrop_path,
+        });
+        bookmarkIcon.classList.add('saved');
+        bookmarkIcon.classList.remove('fa-regular');
+        bookmarkIcon.classList.add('fa-solid');
+      }
+      
+      localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+    });
+
+  // MODAL STARt
   let modal = document.createElement("div");
   modal.className = "modal";
   modal.innerHTML = `
@@ -194,7 +217,7 @@ const artworkUrl = "https://image.tmdb.org/t/p/w500";
           </div>
         </article>
       `)
-      .join("");
-
-      
+      .join("");      
   })
+
+
