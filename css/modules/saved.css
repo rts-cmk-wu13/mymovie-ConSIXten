@@ -1,15 +1,17 @@
-
-
 .saved-movies-container {
     display: grid;
     margin-top: 1rem;
     margin-inline: 1rem;
+    background-color: #858380;
+    width: 90%;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
 }
 
 .saved-movie {
   display: flex;
   align-items: center;
-  height: 10rem;
   position: relative;
 }
 

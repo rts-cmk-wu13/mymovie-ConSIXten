@@ -18,6 +18,17 @@
     bottom: 0;
 }
 
+.footer-fixed {
+    padding: 1rem 0;
+    background-color: light-dark(var(--light-color), var(--dark-color));
+    display: block;
+    height: 5rem;
+    width: 100%;
+    grid-column: fullw;
+    position: fixed;
+    bottom: 0;
+}
+
 .footer__nav{
     display: flex;
     justify-content: space-around;
